@@ -1,71 +1,63 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let searchBar = document.getElementById('searchBar');
-    let filterClass = document.getElementById('filterClass');
-    let filterSubject = document.getElementById('filterSubject');
+// SEARCH FUNCTION
+document.getElementById("searchBar").addEventListener("keyup", function () {
+    let input = this.value.toLowerCase();
+    let notes = document.querySelectorAll(".note");
 
-    function filterNotes() {
-        let selectedClass = filterClass.value;
-        let selectedSubject = filterSubject.value;
-        let notes = document.querySelectorAll('.note');
-
-        notes.forEach(note => {
-            let noteClasses = note.classList; // Get class names
-
-            let isClassMatch = selectedClass === "all" || noteClasses.contains(selectedClass);
-            let isSubjectMatch = selectedSubject === "all" || noteClasses.contains(selectedSubject);
-
-            if (isClassMatch && isSubjectMatch) {
-                note.style.display = "block";
-            } else {
-                note.style.display = "none";
-            }
-        });
-    }
-
-    function toggleClasses(subject) {
-        let classSection = document.getElementById(subject);
-        classSection.style.display = classSection.style.display === "none" ? "block" : "none";
-    }
-
-    function showNotes(selectedClass, selectedSubject) {
-        let notes = document.querySelectorAll('.note');
-
-        notes.forEach(note => {
-            let noteClasses = note.classList;
-            let isClassMatch = noteClasses.contains(selectedClass);
-            let isSubjectMatch = noteClasses.contains(selectedSubject);
-
-            if (isClassMatch && isSubjectMatch) {
-                note.style.display = "block";
-            } else {
-                note.style.display = "none";
-            }
-        });
-    }
-
-    // Search Function
-    searchBar.addEventListener("keyup", function () {
-        let input = searchBar.value.toLowerCase();
-        let notes = document.querySelectorAll('.note');
-
-        notes.forEach(note => {
-            let title = note.getAttribute("data-title").toLowerCase();
-            if (title.includes(input)) {
-                note.style.display = "block";
-            } else {
-                note.style.display = "none";
-            }
-        });
+    notes.forEach(note => {
+        let title = note.getAttribute("data-title").toLowerCase();
+        if (title.includes(input)) {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
     });
+});
 
-    // Apply filters when dropdown changes
-    filterClass.addEventListener("change", filterNotes);
-    filterSubject.addEventListener("change", filterNotes);
+// TOGGLE FUNCTION FOR SUBJECTS & CLASSES
+function toggleClasses(subject) {
+    let classSection = document.getElementById(subject);
+    if (classSection.style.display === "none" || classSection.style.display === "") {
+        classSection.style.display = "block";
+    } else {
+        classSection.style.display = "none";
+    }
+}
 
-    // Ensure filtering works on page load
-    filterNotes();
+// FILTER FUNCTION FOR CLASS & SUBJECT
+function filterNotes() {
+    let selectedClass = document.getElementById("filterClass").value;
+    let selectedSubject = document.getElementById("filterSubject").value;
+    let notes = document.querySelectorAll(".note");
 
-    // Expose toggle function globally
-    window.toggleClasses = toggleClasses;
-    window.showNotes = showNotes;
+    notes.forEach(note => {
+        let noteClasses = note.classList;
+        let isClassMatch = selectedClass === "all" || noteClasses.contains(selectedClass);
+        let isSubjectMatch = selectedSubject === "all" || noteClasses.contains(selectedSubject);
+
+        if (isClassMatch && isSubjectMatch) {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    });
+}
+
+// ADD EVENT LISTENERS TO FILTERS
+document.getElementById("filterClass").addEventListener("change", filterNotes);
+document.getElementById("filterSubject").addEventListener("change", filterNotes);
+// SEARCH FUNCTION (Searches both titles & content)
+document.getElementById("searchBar").addEventListener("keyup", function () {
+    let input = this.value.toLowerCase();
+    let notes = document.querySelectorAll(".note");
+
+    notes.forEach(note => {
+        let title = note.getAttribute("data-title").toLowerCase();
+        let content = note.textContent.toLowerCase(); // Searches inside the note content too
+
+        if (title.includes(input) || content.includes(input)) {
+            note.style.display = "block";
+        } else {
+            note.style.display = "none";
+        }
+    });
 });
