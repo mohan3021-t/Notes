@@ -3,24 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes</title>
+    <meta name="description" content="Download free study materials for Physics, Chemistry, Mathematics, Biology, and Computer Science.">
+    <meta name="keywords" content="study notes, free pdf, physics notes, chemistry notes, mathematics, biology, computer science, education">
+
+    <title>Study Notes</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script defer src="script.js"></script> 
 </head>
 <body>
     <header>
-        <h1>Welcome to Notes</h1>
-        <nav>
-            <a href="projects.html">Study Materials</a> |
-            <a href="contact.html">Contact</a>
-        </nav>
-        <input type="text" id="searchBar" placeholder="Search notes..." onkeyup="searchNotes()">
-    </header>
+        <h1>📚 Study Notes</h1>
+        <p>Download high-quality study materials for Physics, Chemistry, and Mathematics.</p>
+        
+        <div class="filters">
+            <select id="filterClass">
+                <option value="all">All Classes</option>
+                <option value="class-10">Class 10</option>
+                <option value="class-11">Class 11</option>
+                <option value="class-12">Class 12</option>
+            </select>
+        
+            <select id="filterSubject">
+                <option value="all">All Subjects</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="biology">Biology</option>
+                <option value="cs">Computer Science</option>
+            </select>
+        </div>
+        
+        <input type="text" id="searchBar" placeholder="🔍 Search notes...">
+        <button id="searchButton">Search</button>
     </header>
 
-    <section class="intro">
-        <p>Find high-quality study materials for Physics, Chemistry, and Mathematics.</p>
-        <a href="projects.html" class="btn">Browse Notes</a>
+    <section class="notes">
+        <div class="note" data-title="Physics">
+            <h2>📖 Physics Notes</h2>
+            <p>Complete Physics syllabus in an easy-to-read format.</p>
+            <a href="Class 12-phy.html">Download Class 12 PDF</a>
+        </div>
+
+        <div class="note" data-title="Chemistry">
+            <h2>🧪 Chemistry Notes</h2>
+            <p>All important Chemistry concepts explained simply.</p>
+            <a href="chemistry.pdf" download>Download PDF</a>
+        </div>
+
+        <div class="note" data-title="Mathematics">
+            <h2>🧮 Mathematics Notes</h2>
+            <p>All formulas and theorems in one place.</p>
+            <a href="maths.pdf" download>Download PDF</a>
+        </div>
+
+        <div class="note" data-title="Biology">
+            <h2>🧬 Biology Notes</h2>
+            <p>Detailed Biology notes covering all key topics.</p>
+            <a href="biology.pdf" download>Download PDF</a>
+        </div>
+        
+        <div class="note" data-title="Computer Science">
+            <h2>💻 Computer Science Notes</h2>
+            <p>Learn programming, algorithms, and computer basics.</p>
+            <a href="computerscience.pdf" download>Download PDF</a>
+        </div>
+        
     </section>
 </body>
 </html>
