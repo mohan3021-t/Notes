@@ -63,7 +63,10 @@ a {
     text-align: left;
 }
 
-.c1 {
+.ch {
     text-align: left;
-    
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    text-align: left;
 }
