@@ -70,3 +70,12 @@ a {
     background-color: #1f1f1f;
     text-align: left;
 }
+
+#searchBar {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
