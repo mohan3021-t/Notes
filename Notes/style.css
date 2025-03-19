@@ -1,14 +1,49 @@
 body {
+    background-color: #121212;
+    color: #ffffff;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f8f9fa;
+    margin: 0;
     padding: 20px;
 }
-h1 {
-    color: #007bff;
+
+header {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
 }
+
 nav a {
+    color: #00bcd4;
     text-decoration: none;
-    margin: 10px;
     font-weight: bold;
+    margin: 0 15px;
+}
+
+.intro, .projects, .contact {
+    margin-top: 20px;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 10px;
+}
+
+.project {
+    background: #2a2a2a;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+a {
+    color: #00bcd4;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00bcd4;
+    color: #121212;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
 }
