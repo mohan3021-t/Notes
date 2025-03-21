@@ -92,5 +92,5 @@ select {
 .footer {
     position: relative;
     text-align: center;
-    
+    padding: 10px;
 }
